@@ -61,6 +61,13 @@ h1 {
     align-items: center;
 }
 
-@media screen {
-    
+@media (max-width: 600px) {
+    .acciones {
+        flex-wrap: wrap;
+    }
+
+    .button {
+        width: 300px;
+        margin: 10px;
+    }
 }
