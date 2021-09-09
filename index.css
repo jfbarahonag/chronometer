@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+h1 {
+    margin: 20px;
+    text-align: center;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 50px;
+}
+
+.acciones {
+    display: flex;
+    justify-content: center;
+}
+
+
+.button {
+    margin: 0 5px;
+    padding: 20px 30px;
+    background-color: transparent;
+    border-radius: 30px;
+    border: none;
+    color: rgb(95, 95, 95);
+    cursor: pointer;
+    font-size: large;
+}
+
+.contar {
+    background-color: rgb(166, 255, 1);
+}
+
+.pausar {
+    background-color: rgb(177, 215, 241);
+}
+
+.borrar {
+    background-color: rgb(241, 171, 159);
+}
+
+.historial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen {
+    
+}
