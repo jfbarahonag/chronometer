@@ -21,6 +21,7 @@ let events = {
     "Contar" : correrConteo,
     "Pausar" : pausarConteo,
     "Borrar conteo" : borrarConteo,
+    "Limpiar historial" : limpiarHistorial,
 }
 
 function setClickActions(action) {
@@ -82,6 +83,7 @@ function borrarConteo() {
     }
     actualizarHistorial(milesimas, segundos, minutos)
     reiniciarContadores()
+    agregarBotonLimpiarHistorial()
 }
 
 function actualizarHistorial(milesimas, segundos, minutos) {
@@ -108,12 +110,61 @@ function reiniciarContadores() {
     minutosDiv.textContent = formatear(milesimas)
 }
 
+function limpiarHistorial() {
+    if (lista_horas.length <= 0) {
+        console.log("The list should be zero");
+        return
+    }
+
+    localStorage.clear()
+    console.log(lista_horas);
+    
+    const limpiar = document.querySelector('.limpiar')
+    document.querySelector('.acciones').removeChild(limpiar)
+
+    for (const hora of lista_horas) {
+        historialDiv.removeChild(historialDiv.lastChild)
+    }
+}
+
+function agregarBotonLimpiarHistorial()
+{
+    if(lista_horas.length <= 0)
+    {
+        console.log("There are no saved hours");
+        return
+    }
+
+
+    if (document.querySelector('.limpiar') != null)
+    {
+        console.log("This button already exists");
+        return
+    }
+
+    let actions = document.querySelector('.acciones')
+
+    const limpiar = document.createElement('button')
+    limpiar.className += "button limpiar"
+    limpiar.textContent = "Limpiar historial"
+
+    if (limpiar.onclick == null) {
+        limpiar.onclick = limpiarHistorial
+    }
+
+    actions.appendChild(limpiar)
+}
+
 function main() {
     console.log("hello world")
     
     lista_horas = JSON.parse(
         localStorage.getItem(LLAVE_TIEMPO) || '[]'
-        )
+    )
+
+    if (lista_horas.length > 0) {
+        agregarBotonLimpiarHistorial()
+    }
         
     for (const hora of lista_horas) {
         console.log(hora);

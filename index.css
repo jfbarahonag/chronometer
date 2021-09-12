@@ -55,6 +55,10 @@ h1 {
     background-color: rgb(241, 171, 159);
 }
 
+.limpiar {
+    background-color: rgb(231, 238, 135);
+}
+
 .historial {
     display: flex;
     flex-direction: column;
@@ -68,6 +72,5 @@ h1 {
 
     .button {
         width: 300px;
-        margin: 10px;
     }
 }
