@@ -2,6 +2,10 @@
 
 const actions = []
 
+const LLAVE_TIEMPO = "tiempo"
+
+let lista_horas = []
+
 let minutosDiv = document.querySelector('.minutos')
 let segundosDiv = document.querySelector('.segundos')
 let milesimasDiv = document.querySelector('.milesimas')
@@ -87,6 +91,8 @@ function actualizarHistorial(milesimas, segundos, minutos) {
     }
 
     let ultimaHora = `${formatear(minutos)}:${formatear(segundos)}:${formatear(milesimas)}`
+    lista_horas.push(ultimaHora)
+    localStorage.setItem(LLAVE_TIEMPO, JSON.stringify(lista_horas))
     let p = document.createElement('p')
     p.textContent = ultimaHora
     historialDiv.appendChild(p)
@@ -104,6 +110,18 @@ function reiniciarContadores() {
 
 function main() {
     console.log("hello world")
+    
+    lista_horas = JSON.parse(
+        localStorage.getItem(LLAVE_TIEMPO) || '[]'
+        )
+        
+    for (const hora of lista_horas) {
+        console.log(hora);
+        const p = document.createElement('p')
+        p.textContent = hora
+        historialDiv.appendChild(p)
+    }
+    
 
     document.querySelectorAll("button").forEach(button => actions.push(button))
 
