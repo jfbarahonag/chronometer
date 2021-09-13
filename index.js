@@ -125,6 +125,8 @@ function limpiarHistorial() {
     for (const hora of lista_horas) {
         historialDiv.removeChild(historialDiv.lastChild)
     }
+
+    lista_horas = []
 }
 
 function agregarBotonLimpiarHistorial()
