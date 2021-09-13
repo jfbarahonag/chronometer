@@ -43,6 +43,10 @@ h1 {
     transform: translateY(-4px);
 }
 
+.button:active {
+    background-color: rgb(198, 204, 204);
+}
+
 .contar {
     background-color: rgb(209, 247, 140);
 }
@@ -65,13 +69,23 @@ h1 {
     align-items: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 630px) {
     .acciones {
         flex-wrap: wrap;
     }
 
     .button {
-        width: 300px;
+        width: 50%;
         margin-bottom: 10px;
+    }
+
+    .button:hover {
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 340px) {
+    .button {
+        font-size: small;
     }
 }
