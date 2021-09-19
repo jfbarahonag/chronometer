@@ -8,6 +8,32 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+.header {
+    height: 10vh;
+    width: 100vw;
+    background-color: rgba(145, 133, 133, 0.103);
+    display: flex;
+}
+
+.header > ul {
+    display: flex;
+    list-style: none;
+    align-self: center;
+}
+
+.header > ul > li {
+    margin-left: 10px;
+}
+
+.header > ul > li:hover {
+    color: rgba(0, 0, 0, 0.582);
+}
+
+.header > ul > li > a {
+    text-decoration: none;
+    color: inherit;
+}
+
 h1 {
     margin: 20px;
     text-align: center;
